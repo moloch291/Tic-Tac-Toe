@@ -8,9 +8,17 @@ def game_cycle():
     player1_sign = game.get_player1_sign()
     player2_sign = game.get_player2_sign(player1_sign)
     table = game.define_table()
-    for i in range(9):
+    for i in range(1, 10):
         if i % 2 != 0:
-            mark = game.get_player_inp()
-            game.set_mark_on_table(mark, table, player1_sign)
-            game.win_check(mark, win_conditions)
-            print(table)
+            table = player_turn(player1_sign, table, win_conditions)
+        else:
+            table = player_turn(player2_sign, table, win_conditions)
+
+
+def player_turn(player_sign, table, win_conditions):
+    mark = game.get_player_inp()
+    table = game.set_mark_on_table(mark, table, player_sign)
+    print(table)
+    game.win_check(mark, win_conditions, table)
+    print(win_conditions)
+    return table

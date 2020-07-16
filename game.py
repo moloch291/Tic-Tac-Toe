@@ -4,7 +4,7 @@ def get_win_conditions():
 
 
 def define_table():
-    table = list("  1 | 2 | 3 \n____|___|____ \n  4 | 5 | 6 \n____|___|____ \n  7 | 8 | 9  \n    |   |   ")
+    table = "  1 | 2 | 3 \n____|___|____ \n  4 | 5 | 6 \n____|___|____ \n  7 | 8 | 9  \n    |   |   "
     return table
 
 
@@ -35,12 +35,14 @@ def get_player_inp():
 
 def set_mark_on_table(mark, table, sign):
     for i in range(len(table)):
-        if table [i] == mark:
-            table[i] = table[i].replace(i, sign)
+        if table[i] == mark:
+            table = table.replace(mark, sign)
+    return table
 
 
-def win_check(mark, win_conditions):
-    for i in win_conditions:
-        for w in i:
-            if mark == w:
-                win_conditions[w] = mark
+def win_check(mark, win_conditions, sign):
+    for i in range(len(win_conditions)):
+        for number in win_conditions[i]:
+            if number == mark:
+                win_conditions = win_conditions.replace(number, sign)
+    return win_conditions
