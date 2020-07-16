@@ -1,8 +1,3 @@
-def get_win_conditions():
-    win_conditions = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
-    return win_conditions
-
-
 def define_table():
     table = "  1 | 2 | 3 \n____|___|____ \n  4 | 5 | 6 \n____|___|____ \n  7 | 8 | 9  \n    |   |   "
     return table
@@ -38,11 +33,3 @@ def set_mark_on_table(mark, table, sign):
         if table[i] == mark:
             table = table.replace(mark, sign)
     return table
-
-
-def win_check(mark, win_conditions, sign):
-    for i in range(len(win_conditions)):
-        for number in win_conditions[i]:
-            if number == mark:
-                win_conditions = win_conditions.replace(number, sign)
-    return win_conditions
