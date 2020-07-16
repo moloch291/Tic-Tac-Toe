@@ -10,9 +10,9 @@ def define_win_conditions():
 
 def get_player1_sign():
     player1_sign = input("Player 1: choose a sign! \nIt can be 'x' or 'o'... ").upper()
-    if player1_sign == "x".upper():
+    if player1_sign == "X":
         return player1_sign
-    elif player1_sign == "o".upper():
+    elif player1_sign == "O":
         return player1_sign
     else:
         print("Please choose and type 'x' or 'o'!")
@@ -20,7 +20,7 @@ def get_player1_sign():
 
 
 def determine_player2_sign(player1_sign):
-    if player1_sign == "x".upper():
+    if player1_sign == "X":
         player2_sign = "O"
     else:
         player2_sign = "X"
