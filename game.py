@@ -3,7 +3,7 @@ def define_table():
     return table
 
 
-def win_conditions():
+def define_win_conditions():
     win_conditions_list = [[1, 2, 3], [4, 5, 6], [7, 8, 9], [1, 4, 7], [2, 5, 8], [3, 6, 9], [1, 5, 9], [3, 5, 7]]
     return win_conditions_list
 
@@ -34,15 +34,10 @@ def get_player_inp():
 
 
 def set_mark_on_table(mark, table, sign):
-    for i in range(len(table)):
-        if table[i] == mark:
-            table = table.replace(mark, sign)
+    table = table.replace(mark, sign)
     return table
 
 
-def win_check(win_conditions_list, mark):
-    for i in range(len(win_conditions_list)):
-        if mark in win_conditions_list[i]:
-            for w in range(len(win_conditions_list[i])):
-                if mark == w:
-
+def add_sign_to_win_cons(win_conditions_list, mark, sign):
+    win_conditions_list = [[condition.replace(mark, sign) for condition in lists] for lists in win_conditions_list]
+    return win_conditions_list
