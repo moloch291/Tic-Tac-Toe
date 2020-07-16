@@ -45,7 +45,7 @@ def add_sign_to_win_cons(win_conditions_list, mark, sign):
 
 def win_check(win_conditions_list, sign):
     for i in win_conditions_list:
-        for e in i:
-            if sign == e:
+        for w in range(len(i)):
+            if i[w] == sign and i[w + 1] == sign and i[w + 2] == sign:
                 print("Congratulations! " + sign + " wins!")
                 quit()
