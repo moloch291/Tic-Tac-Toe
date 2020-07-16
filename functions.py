@@ -39,5 +39,13 @@ def set_mark_on_table(mark, table, sign):
 
 
 def add_sign_to_win_cons(win_conditions_list, mark, sign):
-    win_conditions_list = [[condition.replace(mark, sign) for condition in lists] for lists in win_conditions_list]
+    win_conditions_list = [[str(i).replace(mark, sign) for i in win_con] for win_con in win_conditions_list]
     return win_conditions_list
+
+
+def win_check(win_conditions_list, sign):
+    for i in win_conditions_list:
+        for e in i:
+            if sign == e:
+                print("Congratulations! " + sign + " wins!")
+                quit()

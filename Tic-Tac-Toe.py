@@ -1,9 +1,9 @@
-import game2
+import game_cycle
 
 
 def main():
     print("Tic-Tac-Toe!")
-    game2.game_cycle()
+    game_cycle.game_cycle()
 
 
 if __name__ == '__main__':
