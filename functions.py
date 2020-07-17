@@ -8,6 +8,26 @@ def define_win_conditions():
     return win_conditions_list
 
 
+def get_available_marks():
+    available_marks = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    return available_marks
+
+
+def check_mark(mark, available_marks):
+    print(available_marks)
+    for i in range(len(available_marks)):
+        if mark == available_marks[i]:
+            print(i)
+            print(mark)
+            available_marks.remove(available_marks[i])
+            print(available_marks)
+            return available_marks
+        else:
+            print("Invalid input!")
+            return available_marks
+    return available_marks
+
+
 def get_player1_sign():
     player1_sign = input("Player 1: choose a sign! \nIt can be 'x' or 'o'... ").upper()
     if player1_sign == "X":
@@ -45,24 +65,7 @@ def add_sign_to_win_cons(win_conditions_list, mark, sign):
 
 def win_check(win_conditions_list, sign):
     for i in win_conditions_list:
-        for w in range(len(i)):
+        for w in range(len(i) - 1):
             if i[w] == sign and i[w + 1] == sign and i[w + 2] == sign:
                 print("Congratulations! " + sign + " wins!")
                 quit()
-
-
-def fill_marked_fields(mark, marked_fields):
-    if mark.isnumeric():
-        if 0 < int(mark) < 10:
-            if mark not in marked_fields:
-                marked_fields.append(mark)
-            else:
-                print("That field is taken! Select another!")
-                get_player_inp()
-        else:
-            print("That number seems wrong... \nPlease check the table for possible fields to mark!")
-            get_player_inp()
-        return marked_fields
-    else:
-        print("Invalid input... \nPlease type numbers of available fields on the table!")
-        get_player_inp()
