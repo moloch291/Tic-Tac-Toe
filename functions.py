@@ -51,9 +51,11 @@ def win_check(win_conditions_list, sign):
                 quit()
 
 
-def input_check(available_marks, mark):
-    if mark in available_marks:
-        return mark
-    else:
-        print("Invalid input...")
-        get_player_inp()
+def input_check(marks, mark):
+    for i in range(len(marks)):
+        if mark == marks[i]:
+            marks.pop(mark)
+        else:
+            print("That field is already taken!")
+            get_player_inp()
+        return marks
