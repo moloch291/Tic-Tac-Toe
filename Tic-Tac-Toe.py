@@ -2,7 +2,7 @@ import game_cycle
 
 
 def main():
-    print("Tic-Tac-Toe!")
+    print("Grab a friend and play Tic-Tac-Toe!")
     game_cycle.game_cycle()
 
 

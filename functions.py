@@ -28,14 +28,18 @@ def determine_player2_sign(player1_sign):
     return player2_sign
 
 
-def get_player_inp():
-    available_marks = [str(1), str(2), str(3), str(4), str(5), str(6), str(7), str(8), str(9)]
+def available_marks():
+    available_marks = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    return available_marks
+
+
+def get_player_inp(available_marks):
     mark = input("Choose a field to mark! ")
     if mark in available_marks:
         return str(mark)
     else:
         print("Incorrect input! ")
-        get_player_inp()
+        get_player_inp(available_marks)
 
 
 def set_mark_on_table(mark, table, sign):
