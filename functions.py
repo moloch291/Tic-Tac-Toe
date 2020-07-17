@@ -51,11 +51,14 @@ def win_check(win_conditions_list, sign):
                 quit()
 
 
-def input_check(marks, mark):
-    for i in range(len(marks)):
-        if mark == marks[i]:
-            marks.pop(mark)
+def input_check(mark, marks, win_conditions_list):
+    if mark.isnumeric():
+        if mark not in marks and mark in win_conditions_list:
+            marks.append(mark)
+            return marks
         else:
-            print("That field is already taken!")
+            print("That field is already marked!")
             get_player_inp()
-        return marks
+    else:
+        print("Invalid input!")
+        get_player_inp()
