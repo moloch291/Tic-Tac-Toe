@@ -51,14 +51,18 @@ def win_check(win_conditions_list, sign):
                 quit()
 
 
-def input_check(mark, marks, win_conditions_list):
+def fill_marked_fields(mark, marked_fields):
     if mark.isnumeric():
-        if mark not in marks and mark in win_conditions_list:
-            marks.append(mark)
-            return marks
+        if 0 < int(mark) < 10:
+            if mark not in marked_fields:
+                marked_fields.append(mark)
+            else:
+                print("That field is taken! Select another!")
+                get_player_inp()
         else:
-            print("That field is already marked!")
+            print("That number seems wrong... \nPlease check the table for possible fields to mark!")
             get_player_inp()
+        return marked_fields
     else:
-        print("Invalid input!")
+        print("Invalid input... \nPlease type numbers of available fields on the table!")
         get_player_inp()
