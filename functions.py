@@ -24,22 +24,13 @@ def determine_player2_sign(player1_sign):
         player2_sign = "O"
     else:
         player2_sign = "X"
-    print("So Player 2 has: " + player2_sign + "! \nPlayer 1 starts. ")
+    print("So Player 2 has: " + player2_sign + ".")
     return player2_sign
 
 
-def available_marks():
-    available_marks = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
-    return available_marks
-
-
-def get_player_inp(available_marks):
+def get_player_inp():
     mark = input("Choose a field to mark! ")
-    if mark in available_marks:
-        return str(mark)
-    else:
-        print("Incorrect input! ")
-        get_player_inp(available_marks)
+    return mark
 
 
 def set_mark_on_table(mark, table, sign):
@@ -58,3 +49,11 @@ def win_check(win_conditions_list, sign):
             if i[w] == sign and i[w + 1] == sign and i[w + 2] == sign:
                 print("Congratulations! " + sign + " wins!")
                 quit()
+
+
+def input_check(available_marks, mark):
+    if mark in available_marks:
+        return mark
+    else:
+        print("Invalid input...")
+        get_player_inp()

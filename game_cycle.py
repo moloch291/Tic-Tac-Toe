@@ -6,18 +6,23 @@ def game_cycle():
     win_conditions_list = functions.define_win_conditions()
     player1_sign = functions.get_player1_sign()
     player2_sign = functions.determine_player2_sign(player1_sign)
-    available_marks = functions.available_marks()
+    available_marks = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+    print(available_marks)
     print(table)
     print(win_conditions_list)
     for i in range(1, 10):
         if i % 2 != 0:
-            mark = functions.get_player_inp(available_marks)
+            print("Player 1:")
+            mark = functions.get_player_inp()
+            functions.input_check(available_marks, mark)
             table = player_turn(player1_sign, table, mark)
             win_conditions_list = functions.add_sign_to_win_cons(win_conditions_list, mark, player1_sign)
             functions.win_check(win_conditions_list, player1_sign)
             print(win_conditions_list)
         else:
-            mark = functions.get_player_inp(available_marks)
+            print("Player 2:")
+            mark = functions.get_player_inp()
+            functions.input_check(available_marks, mark)
             table = player_turn(player2_sign, table, mark)
             win_conditions_list = functions.add_sign_to_win_cons(win_conditions_list, mark, player2_sign)
             functions.win_check(win_conditions_list, player1_sign)
